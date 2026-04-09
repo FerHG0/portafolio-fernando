@@ -95,7 +95,7 @@ const About = () => {
               <div className="absolute inset-0 bg-blue-600 rounded-full blur-md opacity-30"></div>
               <div className="relative w-full h-full rounded-full border-2 border-gray-700 overflow-hidden bg-gray-900 flex items-center justify-center shadow-2xl">
                 <img 
-                  src="/public/images/fotos/avatar2.jpeg" 
+                  src="/images/fotos/avatar2.jpeg" 
                   alt="Carlos Fernando Herrera García"
                   className="w-full h-full object-cover relative z-10"
                   onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }}
