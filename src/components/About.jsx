@@ -112,7 +112,7 @@ const About = () => {
           
           <div className="space-y-6 text-gray-400 leading-relaxed text-lg">
             <p>
-              Soy un desarrollador radicado en México, próximo a graduarme de la universidad y con una fuerte pasión por la arquitectura de software y la infraestructura. 
+              Soy desarrollador enfocado en construir sistemas que resuelven problemas reales de negocios, próximo a graduarme de la universidad y con una fuerte pasión por la arquitectura de software y la infraestructura. 
               Mi enfoque principal no es solo escribir líneas de código, sino <strong className="text-white">construir soluciones eficientes</strong> que resuelvan problemas reales de negocio.
             </p>
             <p>
@@ -120,7 +120,7 @@ const About = () => {
               Además, aunque utilizo herramientas modernas como React y Tailwind, poseo bases sólidas en el desarrollo web clásico (<strong className="text-gray-300">HTML5, CSS3 y JavaScript</strong>), lo que me permite estructurar interfaces accesibles y entender el DOM a profundidad.
             </p>
             <p>
-              Actualmente estoy desarrollando el proyecto de tesis para mi titulación: un sistema integral para el sector farmacéutico, lo que me ha dado experiencia invaluable en el ciclo de vida completo del software.
+              Actualmente estoy desarrollando el proyecto de tesis para mi titulación: un sistema integral para el sector farmacéutico, lo que me ha permitido diseñar, desarrollar y desplegar un sistema completo en producción.
             </p>
           </div>
         </div>

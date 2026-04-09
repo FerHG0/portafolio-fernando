@@ -8,32 +8,27 @@ const ProjectCard = ({ project, index, openGallery }) => {
   const cardRef = useRef(null);
   const [tiltStyle, setTiltStyle] = useState({});
 
-  // Matemática del efecto Tilt
+  // Matemática del efecto Tilt (Exactamente como te gustaba)
   const handleMouseMove = (e) => {
     if (!cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
     
-    // Posición del ratón dentro de la tarjeta
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
     
-    // Calcular el centro
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
     
-    // Calcular la rotación (mientras más lejos del centro, más rota)
-    // Dividimos entre 20 para suavizar el efecto (máximo ~10 a 15 grados)
     const rotateX = ((y - centerY) / 20) * -1; 
     const rotateY = (x - centerX) / 20;
 
     setTiltStyle({
       transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`,
-      transition: 'none', // Sin transición al moverse para que sea instantáneo
+      transition: 'none',
       zIndex: 10
     });
   };
 
-  // Cuando el ratón sale, la tarjeta vuelve a la normalidad suavemente
   const handleMouseLeave = () => {
     setTiltStyle({
       transform: `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`,
@@ -55,16 +50,18 @@ const ProjectCard = ({ project, index, openGallery }) => {
       {/* Reflejo de luz falso (Brillo que aparece en hover) */}
       <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none bg-gradient-to-tr from-transparent via-white to-transparent transform -translate-x-full group-hover:translate-x-full" style={{ transition: 'all 1s ease' }}></div>
 
-      {/* Contenido de la Tarjeta */}
+      {/* Icono Principal */}
       <div className="bg-gray-950 w-16 h-16 rounded-xl border border-gray-800 flex items-center justify-center mb-6 shadow-lg group-hover:border-blue-500/50 transition-colors relative z-10">
         {project.icon}
       </div>
 
-      <h3 className=" font-display text-2xl font-bold mb-3 relative z-10">{project.title}</h3>
+      <h3 className="font-display text-2xl font-bold mb-3 relative z-10">{project.title}</h3>
+      
       <p className="text-gray-400 mb-6 flex-1 leading-relaxed text-sm md:text-base relative z-10">
         {project.description}
       </p>
 
+      {/* Tecnologías */}
       <div className="flex flex-wrap gap-2 mb-8 relative z-10">
         {project.tech.map((t, i) => (
           <span key={i} className="flex items-center gap-1.5 bg-gray-950 border border-gray-800 text-gray-300 text-xs px-3 py-1.5 rounded-md font-mono">
@@ -73,9 +70,23 @@ const ProjectCard = ({ project, index, openGallery }) => {
         ))}
       </div>
 
+      {/* Enlaces y Botones */}
       <div className="flex flex-col gap-4 mt-auto pt-6 border-t border-gray-800 relative z-10">
+        
         <div className="flex flex-wrap items-center gap-4">
-          
+          {/* BOTÓN ITCH.IO (Prioridad para el juego) */}
+          {project.itchio && (
+            <a 
+              href={project.itchio} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="flex items-center gap-2 text-blue-400 hover:text-blue-300 font-bold text-sm transition-colors"
+            >
+              <FiExternalLink size={18} /> Jugar en Itch.io
+            </a>
+          )}
+
+          {/* BOTÓN GALERÍA */}
           {project.hasGallery && (
             <button 
               onClick={() => openGallery(project)}
@@ -86,10 +97,17 @@ const ProjectCard = ({ project, index, openGallery }) => {
           )}
         </div>
 
+        {/* LISTADO DE REPOSITORIOS GITHUB */}
         {project.github && project.github.length > 0 && (
           <div className="flex flex-col gap-2 mt-2">
             {project.github.map((repo, i) => (
-              <a key={i} href={repo.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-400 hover:text-white font-semibold text-sm transition-colors w-fit">
+              <a 
+                key={i} 
+                href={repo.url} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center gap-2 text-gray-400 hover:text-white font-semibold text-sm transition-colors w-fit"
+              >
                 <FiGithub size={18} /> {repo.text}
               </a>
             ))}
@@ -99,7 +117,6 @@ const ProjectCard = ({ project, index, openGallery }) => {
     </div>
   );
 };
-// --- FIN SUB-COMPONENTE ---
 
 const Projects = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -120,7 +137,6 @@ const Projects = () => {
           <div className="w-20 h-1 bg-blue-600 mt-4 rounded"></div>
         </div>
 
-        {/* Grid ahora renderiza nuestro nuevo sub-componente */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 perspective-1000">
           {projects.map((project, index) => (
             <ProjectCard 
@@ -132,7 +148,7 @@ const Projects = () => {
           ))}
         </div>
 
-        {/* Renderizado del Modal Fuera del Grid */}
+        {/* Modal con renderizado condicional optimizado */}
         {isModalOpen && (
           <Modal 
             onClose={() => setIsModalOpen(false)} 
@@ -141,7 +157,6 @@ const Projects = () => {
             notice={selectedProject?.notice} 
           />
         )}
-
       </div>
     </section>
   );

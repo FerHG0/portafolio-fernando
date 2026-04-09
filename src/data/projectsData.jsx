@@ -8,17 +8,17 @@ export const projects = [
   {
     id: 1,
     title: "Sistema POS B2B Farmacéutico",
-    description: "Plataforma Fullstack para la gestión de inventario remoto y ventas. Incluye un bot de WhatsApp para consultas con IA, alertas de caducidad y respaldos automatizados usando la API de Google Drive. Desplegado en un servidor Linux optimizado de recursos limitados.",
+    description: "Sistema completo para gestión de ventas e inventario en farmacias. Automatiza procesos críticos como control de caducidad, consultas vía WhatsApp y respaldos en la nube, reduciendo errores operativos y mejorando la eficiencia del negocio.",
     icon: <DiReact size={40} className="text-cyan-400" />,
     tech: [
       { name: "React", icon: <DiReact /> },
       { name: "TypeScript", icon: <SiTypescript /> },
       { name: "MariaDB", icon: <SiMariadb /> },
-      { name: "CI/CD Actions", icon: <SiGithubactions /> },
+      { name: "CI/CD", icon: <SiGithubactions /> },
       { name: "DigitalOcean", icon: <SiDigitalocean /> }
     ],
     hasGallery: true,
-    notice: "Nota de confidencialidad: Por respeto a los datos del cliente, las capturas mostradas corresponden a un entorno de pruebas (Staging) limpio, preparado para despliegue y sin información real de medicamentos o pacientes.",
+    notice: "Capturas de entorno de pruebas sin datos reales.",
     images: [
       "/images/projects/APIFarmacia/pos-1.png",
       "/images/projects/APIFarmacia/pos-2.png",
@@ -32,36 +32,36 @@ export const projects = [
       "/images/projects/APIFarmacia/pos-droplet1.png",
     ],
     github: [
-      { text: "Backend (Autor)", url: "https://github.com/FerHG0/API-FMR" },
-      { text: "Frontend (Colaborador)", url: "https://github.com/Scaramoucheemo/FRONT-FMR" }
+      { text: "Backend (Arquitectura)", url: "https://github.com/FerHG0/API-FMR" },
+      { text: "Frontend (Colaboración)", url: "https://github.com/Scaramoucheemo/FRONT-FMR" }
     ]
   },
   {
     id: 2,
     title: "AWS DeepRacer - IA Autónoma",
-    description: "Modelo de Inteligencia Artificial entrenado mediante aprendizaje por refuerzo (Reinforcement Learning) para conducción autónoma en pistas virtuales y físicas. Logro del 3er lugar en competencia oficial. Desarrollo íntegro en entorno Cloud.",
+    description: "Modelo de conducción autónoma entrenado con Reinforcement Learning en la nube. Logré el 3er lugar en competencia oficial optimizando recompensas y comportamiento del agente.",
     icon: <DiPython size={40} className="text-yellow-400" />,
     tech: [
       { name: "Python", icon: <DiPython /> },
       { name: "AWS", icon: <FaAws /> },
-      { name: "Machine Learning", icon: null }
+      { name: "RL", icon: null }
     ],
-    link: "#",
-    hasGallery: false, // No hay galería para este
-    github: [] // Vacío porque no hay código fuente público
+    hasGallery: false,
+    github: []
   },
-  {
+{
     id: 3,
-    title: "Survival Horror (Wendigo)",
-    description: "Videojuego 3D en mundo semi-abierto con mecánicas de sigilo, gestión de estamina e inventario. Implementación de una IA enemiga perseguidora y mecánicas dinámicas de 'Jumpscares' condicionadas al estado de las herramientas del jugador (POO).",
+    title: "Eco de los bosques",
+    itchio: "https://ferhg.itch.io/eco-de-los-bosques", // <--- NUEVO LINK
+    description: "Videojuego 3D con IA enemiga dinámica y mecánicas de sigilo. Implementé lógica basada en estados y eventos para generar tensión, incluyendo sistema de stamina, inventario y jumpscares condicionados.",
     icon: <DiUnitySmall size={40} className="text-gray-300" />,
     tech: [
       { name: "Unity", icon: <DiUnitySmall /> },
-      { name: "C#", icon: <TbBrandCSharp /> }, 
+      { name: "C#", icon: <TbBrandCSharp /> },
       { name: "POO", icon: null }
     ],
-    link: "#",
     hasGallery: true,
+    notice: "Nota: Este es un build ejecutable para Windows. Se recomienda GPU dedicada.",
     images: [
       "/images/projects/EcoDeLosBosques/eco.jpeg",
       "/images/projects/EcoDeLosBosques/eco2.jpeg",
@@ -72,11 +72,9 @@ export const projects = [
       "/images/projects/EcoDeLosBosques/eco7.jpeg",
       "/images/projects/EcoDeLosBosques/eco8.jpeg",
       "/images/projects/EcoDeLosBosques/eco9.jpeg",
-      "/images/projects/EcoDeLosBosques/eco10.jpeg"
-
-    ],
+      "/images/projects/EcoDeLosBosques/eco10.jpeg",    ],
     github: [
-      { text: "Código Fuente", url: "URL_DE_TU_JUEGO" }
+      { text: "Repositorio del proyecto", url: "https://github.com/FerHG0/eco_de_los_bosques.git" }
     ]
   }
 ];
