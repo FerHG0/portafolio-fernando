@@ -3,7 +3,7 @@ import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-950 border-t border-gray-900 text-gray-400 py-16 px-8 lg:px-20 font-sans flex flex-col items-center text-center">
+    <footer id="contacto" className="bg-gray-950 border-t border-gray-900 text-gray-400 py-16 px-8 lg:px-20 font-sans flex flex-col items-center text-center">
       <div className="max-w-2xl mx-auto">
         <p className="text-blue-500 font-mono tracking-widest text-sm mb-4">{"//"} SIGUIENTE PASO</p>
         <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-6">¿Trabajamos juntos?</h2>

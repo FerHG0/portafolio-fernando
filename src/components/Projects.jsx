@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { projects } from '../data/projectsData';
-import { FiExternalLink, FiGithub, FiImage } from "react-icons/fi";
+import { FiExternalLink, FiGithub, FiImage, FiDownload } from "react-icons/fi";
+
 import Modal from './Modal';
 
 // --- SUB-COMPONENTE: Tarjeta 3D Individual ---
@@ -131,12 +132,27 @@ const Projects = () => {
     <section id="proyectos" className="bg-gray-950 text-white py-24 px-8 lg:px-20 font-sans">
       <div className="max-w-7xl mx-auto relative z-20">
         
-        <div className="mb-16" data-aos="fade-up">
-          <p className="text-blue-500 font-mono tracking-widest text-sm mb-2">{"//"} MI TRABAJO</p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold">Proyectos Destacados</h2>
-          <div className="w-20 h-1 bg-blue-600 mt-4 rounded"></div>
+        {/* HEADER DE SECCIÓN CON BOTÓN DE CV */}
+        <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6" data-aos="fade-up">
+          <div>
+            <p className="text-blue-500 font-mono tracking-widest text-sm mb-2">{"//"} MI TRABAJO</p>
+            <h2 className="font-display text-4xl md:text-5xl font-bold">Proyectos Destacados</h2>
+            <div className="w-20 h-1 bg-blue-600 mt-4 rounded"></div>
+          </div>
+
+          {/* BOTÓN DESCARGAR CV */}
+          <a 
+            href="/CV_Fernando_Herrera.pdf" // Asegúrate de tener el archivo en la carpeta public
+            download
+            className="flex items-center gap-2 bg-gray-900 border border-gray-800 hover:border-blue-500 text-gray-300 hover:text-white px-6 py-3 rounded-xl transition-all group shrink-0 h-fit"
+          >
+            <FiDownload className="group-hover:translate-y-0.5 transition-transform" /> 
+            <span>Descargar CV</span>
+            <span className="text-[10px] bg-blue-600 text-white px-1.5 py-0.5 rounded ml-1 font-mono">PDF</span>
+          </a>
         </div>
 
+        {/* Grid de proyectos igual que antes */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 perspective-1000">
           {projects.map((project, index) => (
             <ProjectCard 

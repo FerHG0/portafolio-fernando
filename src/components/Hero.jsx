@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { DiPython, DiLinux, DiReact, DiJavascript1, DiGit, DiAws, DiNodejsSmall } from "react-icons/di";
 import { SiTypescript } from "react-icons/si";
+import { FiMail } from "react-icons/fi"; // Añadimos este import
 
 const Hero = () => {
   const commandToType = "./init_profile.sh";
@@ -25,16 +26,16 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-white min-h-screen flex items-center overflow-hidden px-8 lg:px-20 font-sans">
+<section className="relative bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-white min-h-screen flex items-center overflow-hidden px-8 lg:px-20 font-sans">
       
-      {/* Glow background */}
-      <div className="absolute top-20 left-10 w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-[128px] opacity-20 animate-pulse"></div>
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-[128px] opacity-20 animate-pulse" style={{ animationDelay: '2s' }}></div>
+      {/* Glow background (mejoramos opacidad para que no canse) */}
+      <div className="absolute top-20 left-10 w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-[128px] opacity-10 animate-pulse"></div>
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-[128px] opacity-10 animate-pulse" style={{ animationDelay: '2s' }}></div>
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10 w-full">
         
         {/* TEXTO */}
-        <div>
+        <div data-aos="fade-right">
           <p className="text-blue-400 font-mono mb-3 tracking-widest text-sm">
             {">"} Inicializando perfil...
           </p>
@@ -43,23 +44,28 @@ const Hero = () => {
             Fernando Herrera
           </h1>
 
-          <h2 className="font-display text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 mb-6 pb-2">
+          <h2 className="font-display text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 mb-6 pb-2 animate-text-gradient">
             Backend & Fullstack Developer
           </h2>
 
           <p className="text-lg text-gray-400 mb-10 leading-relaxed max-w-lg">
             Desarrollo <span className="text-gray-200 font-semibold">sistemas completos que resuelven problemas reales</span>.  
             Especializado en <span className="text-gray-200 font-semibold">TypeScript, Python y arquitectura backend</span>, 
-            con experiencia en <span className="text-gray-200 font-semibold">CI/CD, Linux y despliegues en producción</span>.  
-            He trabajado en soluciones como sistemas POS, automatización de procesos y aplicaciones con IA.
+            con experiencia en <span className="text-gray-200 font-semibold">CI/CD, Linux y despliegues en producción</span>.
           </p>
 
-          <div className="flex flex-wrap gap-5">
-            <a href="#proyectos" className="bg-blue-600 hover:bg-blue-700 text-white font-mono text-sm tracking-wider py-3.5 px-8 rounded-xl transition-all hover:-translate-y-1">
+          {/* GRUPO DE BOTONES REORGANIZADO */}
+          <div className="flex flex-wrap items-center gap-5">
+            <a href="#proyectos" className="bg-blue-600 hover:bg-blue-700 text-white font-mono text-sm tracking-wider py-3.5 px-8 rounded-xl transition-all hover:-translate-y-1 shadow-[0_0_20px_rgba(37,99,235,0.3)]">
               Ver Sistemas
             </a>
-            <a href="#sobre-mi" className="border border-blue-500 text-blue-400 hover:bg-blue-900 font-mono text-sm tracking-wider py-3.5 px-8 rounded-xl transition-all hover:-translate-y-1">
+            
+            <a href="#sobre-mi" className="border border-gray-700 text-gray-400 hover:text-blue-400 hover:border-blue-500 font-mono text-sm tracking-wider py-3.5 px-8 rounded-xl transition-all hover:-translate-y-1">
               Sobre Mí
+            </a>
+
+            <a href="#contacto" className="flex items-center gap-2 text-gray-500 hover:text-white font-mono text-sm transition-colors group">
+              <FiMail className="group-hover:animate-bounce" /> Contáctame
             </a>
           </div>
         </div>
